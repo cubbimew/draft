@@ -7371,14 +7371,16 @@ does not satisfy \tcode{\exposconcept{infallible-scheduler}<Env>},
 then evaluation of
 the expression \tcode{get_completion_signatures<\placeholder{OutSndr}, Env>()}
 exits with an exception.
+Otherwise, let \tcode{sch} be the scheduler
+\tcode{get_start_scheduler(get_env(\placeholder{out_rcvr}))}.
 Let \tcode{\placeholder{op}} be an lvalue referring to the operation state that
 results from connecting \tcode{\placeholder{out_sndr}} to \tcode{\placeholder{out_rcvr}}.
 Calling \tcode{start(\placeholder{op})} will start \tcode{sndr} on the current
 execution agent and execute completion operations on \tcode{\placeholder{out_rcvr}}
 on an execution agent of the execution resource associated with
-\tcode{\placeholder{sch}}.
+\tcode{sch}.
 If the current execution resource is the same as the execution
-resource associated with \tcode{\placeholder{sch}}, the completion operation on
+resource associated with \tcode{sch}, the completion operation on
 \tcode{\placeholder{out_rcvr}} may be called before \tcode{start(\placeholder{op})} completes.
 
 \rSec2[exec.inline.scheduler]{\tcode{execution::inline_scheduler}}
