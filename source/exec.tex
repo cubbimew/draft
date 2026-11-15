@@ -4144,7 +4144,7 @@ struct @\exposid{let-data}@ {
 \end{codeblock}
 
 \pnum
-Then let the expression \tcode{\exposid{let-cpo}.transform_sender(s, es...)}
+Then let the expression \tcode{\exposid{let-cpo}.transform_sender(set_value, s, es...)}
 be expression-equivalent to:
 \begin{codeblock}
 @\exposid{make-sender}@(@\exposid{let-tag}@{}, @\exposid{let-data}@{s.template @\exposid{get}@<2>(), s.template @\exposid{get}@<1>()})
@@ -7337,7 +7337,7 @@ is expression-equivalent to \tcode{sch == other}.
 Let \tcode{sndr} and \tcode{ev} be subexpressions
 such that \tcode{Sndr} is \tcode{decltype((sndr))}.
 If \tcode{\exposconcept{sender-for}<Sndr, affine_t>} is \tcode{false},
-then the expression \tcode{affine.transform_sender(sndr, ev)} is ill-formed;
+then the expression \tcode{affine.transform_sender(set_value, sndr, ev)} is ill-formed;
 otherwise, it is equal to:
 \begin{codeblock}
 auto& [_, _, child] = sndr;
